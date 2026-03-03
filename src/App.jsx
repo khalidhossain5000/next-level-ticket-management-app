@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-    <header>
+    <header className='bg-white border-b border-b-gray-200 shadow-sm'>
       <NavBar/>
     </header>
     </>
