@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { RxCross1 } from "react-icons/rx";
+import MobileMenu from "./MobileMenu";
 
 const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const navItem = [
     {
       name: "Home",
@@ -23,7 +27,10 @@ const NavBar = () => {
     },
   ];
   return (
-    <nav className="max-w-10/12 mx-auto flex items-center justify-between px-6 py-4 ">
+    <nav className="max-w-11/12 lg:max-w-10/12 mx-auto  px-1 lg:px-6 py-4 ">
+        <div className="flex items-center justify-between">
+
+      
       {/* logo */}
       <div>
         <h2 className="text-[#130B2D] text-xl md:text-2xl font-bold">
@@ -31,7 +38,7 @@ const NavBar = () => {
         </h2>
       </div>
       {/* nav menu item and button */}
-      <div className="flex items-center gap-6">
+      <div className="hidden xl:flex items-center gap-6">
         <ul className="flex items-center gap-6">
           {navItem.map((item, i) => (
             <li key={i}>
@@ -49,6 +56,32 @@ const NavBar = () => {
           </button>
         </div>
       </div>
+
+      {/* mobile menu */}
+
+      <div className="xl:hidden">
+        {isOpen ? (
+          <button onClick={()=>setIsOpen(false)}>
+            <span className="text-2xl">
+              <RxCross1 />
+            </span>
+          </button>
+        ) : (
+          <button onClick={()=>setIsOpen(true)}>
+            <span className="text-2xl">
+              <GiHamburgerMenu />
+            </span>
+          </button>
+        )}
+
+
+       
+      </div>
+        </div>
+       {/* menu items */}
+        <div className="xl:hidden">
+            {isOpen && <MobileMenu navItem={navItem}/>}
+        </div>
     </nav>
   );
 };
