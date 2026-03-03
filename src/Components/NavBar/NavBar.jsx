@@ -79,7 +79,7 @@ const NavBar = () => {
       </div>
         </div>
        {/* menu items */}
-        <div className="xl:hidden">
+        <div className="xl:hidden relative">
             {isOpen && <MobileMenu navItem={navItem}/>}
         </div>
     </nav>
