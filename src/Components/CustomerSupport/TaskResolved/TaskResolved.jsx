@@ -6,7 +6,9 @@ const TaskResolved = ({resolvedTask}) => {
             <h2 className='text-[#34485A] text-xl md:text-2xl font-semibold'>Task Resolved</h2>
             <div className='mt-4'>
                 {/* default text */}
-                <p className="text-[16px] text-[#627382] font-normal  pb-4 text-center lg:text-left ">No resolved tasks yet.</p>
+               {
+                resolvedTask<=0 &&  <p className="text-[16px] text-[#627382] font-normal  pb-4 text-center lg:text-left ">No resolved tasks yet.</p>
+               }
 
                 {/* resolved text */}
                
