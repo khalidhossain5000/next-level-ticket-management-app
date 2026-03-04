@@ -10,30 +10,73 @@ import TaskResolved from "./Components/CustomerSupport/TaskResolved/TaskResolved
 import { Bounce, toast } from "react-toastify";
 const allTicketsPromise = fetch("/ticket-data.json").then((res) => res.json());
 function App() {
-  const [taskAddedToStatus,setTaskAddedToStatus]=useState([])
-
-
+  const [taskAddedToStatus, setTaskAddedToStatus] = useState([]);
+  const [resolvedTask, setResolvedTask] = useState([]);
+  const [currentResolveTask,setCurrentResolveTask]=useState({})
   //this will add task to the right section clicking task div
-  const handleAddTicketToStatus=(ticket)=>{
+  const handleAddTicketToStatus = (ticket) => {
+    const isAlreadyAdded = taskAddedToStatus.some(
+      (task) => task.id === ticket.id,
+    );
 
-    const allAddedTaskToStatus=[...taskAddedToStatus,ticket]
-
-    setTaskAddedToStatus(allAddedTaskToStatus)
-
-    if(taskAddedToStatus.length>=0){
-      toast.success('Ticket Added To Task Status SuccessFully!', {
-position: "top-right",
-autoClose: 5000,
-hideProgressBar: false,
-closeOnClick: false,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "dark",
-transition: Bounce,
-});
+    if (isAlreadyAdded) {
+      return toast.warn("Task Already Added", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
     }
-  }
+
+    const allAddedTaskToStatus = [...taskAddedToStatus, ticket];
+
+    setTaskAddedToStatus(allAddedTaskToStatus);
+
+    if (taskAddedToStatus.length >= 0) {
+      toast.success("Ticket Added To Task Status SuccessFully!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
+    }
+  };
+
+  //handle resolved task
+  const handleResolveTask = (resolveTask) => {
+    setCurrentResolveTask(resolveTask)
+    const allResolvedTask = [...resolvedTask, resolveTask];
+    setResolvedTask(allResolvedTask);
+    if (allResolvedTask.length >= 0) {
+      toast.success(" Task Completed SuccessFully!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
+    }
+    // remove item from task status
+    const remainingTaskInStatus = taskAddedToStatus.filter(
+      (task) => task.id !== resolveTask.id,
+    );
+    setTaskAddedToStatus(remainingTaskInStatus);
+    console.log(allResolvedTask, "all resovled task is here");
+  };
   return (
     <>
       <header className="bg-white border-b border-b-gray-200 shadow-sm">
@@ -48,7 +91,7 @@ transition: Bounce,
           </div>
           {/* resolved card */}
           <div className="lg:flex-1 w-full">
-            <Resolved />
+            <Resolved resolvedTask={resolvedTask} />
           </div>
         </section>
 
@@ -61,16 +104,21 @@ transition: Bounce,
                 <span className="loading loading-bars loading-xl"></span>
               }
             >
-              <CustomerTickets 
-            handleAddTicketToStatus={handleAddTicketToStatus}
-              allTicketsPromise={allTicketsPromise} />
+              <CustomerTickets
+                handleAddTicketToStatus={handleAddTicketToStatus}
+                allTicketsPromise={allTicketsPromise}
+                currentResolveTask={currentResolveTask}
+              />
             </Suspense>
           </div>
 
           {/* right sidebar shwoing status section div */}
           <div className="order-1 lg:order-2 lg:col-span-1">
-            <TaskStatus taskAddedToStatus={taskAddedToStatus}/>
-            <TaskResolved />
+            <TaskStatus
+              handleResolveTask={handleResolveTask}
+              taskAddedToStatus={taskAddedToStatus}
+            />
+            <TaskResolved resolvedTask={resolvedTask} />
           </div>
         </section>
       </main>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const TaskStatus = ({ taskAddedToStatus }) => {
+const TaskStatus = ({ taskAddedToStatus,handleResolveTask }) => {
   return (
     <div>
       <h2 className="text-[#34485A] text-xl md:text-2xl font-semibold">
@@ -17,13 +17,13 @@ const TaskStatus = ({ taskAddedToStatus }) => {
         {/* task status card design */}
 
         <div>
-          {taskAddedToStatus.map((task) => (
-            <div className="p-4 shadow-lg rounded-lg bg-white mt-4 mb-10">
+          {taskAddedToStatus.map((task,i) => (
+            <div key={i} className="p-4 shadow-lg rounded-lg bg-white mt-4 mb-10">
               <h2 className="text-[#001931] text-[18px] font-medium">
                 {task.title}
               </h2>
 
-              <button className="my-4 cursor-pointer text-[16px] font-semibold px-4 py-3 bg-[#02A53B] rounded-sm text-white w-full">
+              <button onClick={()=>handleResolveTask(task)} className="my-4 cursor-pointer text-[16px] font-semibold px-4 py-3 bg-[#02A53B] rounded-sm text-white w-full">
                 Complete
               </button>
             </div>
