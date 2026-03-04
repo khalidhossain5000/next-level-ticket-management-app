@@ -14,7 +14,7 @@ function App() {
   const [resolvedTask, setResolvedTask] = useState([]);
 
   // resolve task id for removing item which are done
-  const [currentResolveTaskIds,setCurrentResolveTaskIds]=useState([])
+  const [currentResolveTaskIds, setCurrentResolveTaskIds] = useState([]);
   //this will add task to the right section clicking task div
   const handleAddTicketToStatus = (ticket) => {
     const isAlreadyAdded = taskAddedToStatus.some(
@@ -56,19 +56,8 @@ function App() {
 
   //handle resolved task
   const handleResolveTask = (resolveTask) => {
-
-const resolveTaskId=[...currentResolveTaskIds,resolveTask.id]
-    setCurrentResolveTaskIds(resolveTaskId)
-
-
-
-
-
-
-
-
-
-
+    const resolveTaskId = [...currentResolveTaskIds, resolveTask.id];
+    setCurrentResolveTaskIds(resolveTaskId);
 
     // other part
     const allResolvedTask = [...resolvedTask, resolveTask];

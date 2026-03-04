@@ -14,12 +14,12 @@ const CustomerTickets = ({
   );
 
   return (
-    <div>
+    <div className="pb-9">
       <h2 className="text-[#34485A] text-xl md:text-2xl font-semibold">
         Customer Tickets
       </h2>
 
-      <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 items-center gap-4 lg:gap-6">
+      <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 items-center gap-4 lg:gap-6 ">
         {remainingTaskAfterComplete.map((ticket) => (
           <CustomerTicketCard
             key={ticket.id}

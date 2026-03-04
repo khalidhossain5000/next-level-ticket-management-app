@@ -77,8 +77,8 @@ const NavBar = () => {
 
       <div className="xl:hidden relative">
         <div
-          className={`
-      absolute top-0 right-0 h-screen w-64 bg-slate-100 shadow-lg
+          className={` 
+      fixed top-14 right-0 h-screen w-64 bg-slate-100 shadow-lg
       transform transition-transform transition-opacity duration-300 ease-in-out
       ${isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}
     `}
