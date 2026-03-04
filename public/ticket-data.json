@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "title": "Unable to login to account",
+    "description": "Customer reports that they cannot log in using their email and password. They receive an authentication error despite resetting the password.",
+    "customer": "Alice Johnson",
+    "priority": "High",
+    "status": "Open",
+    "createdAt": "2026-03-01T09:15:00Z"
+  },
+  {
+    "id": 2,
+    "title": "Billing discrepancy on last invoice",
+    "description": "Customer noticed that their last invoice includes unexpected charges. They are requesting a detailed explanation and refund for the incorrect amount.",
+    "customer": "Bob Smith",
+    "priority": "Medium",
+    "status": "In Progress",
+    "createdAt": "2026-03-02T11:45:00Z"
+  },
+  {
+    "id": 3,
+    "title": "App crashes on startup",
+    "description": "Customer reports that the mobile app crashes immediately upon launch. Issue occurs on Android 12 devices. Needs urgent fix.",
+    "customer": "Charlie Davis",
+    "priority": "High",
+    "status": "Open",
+    "createdAt": "2026-03-03T08:30:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Request for password reset email",
+    "description": "Customer is unable to receive the password reset email. They need access urgently to continue using the service.",
+    "customer": "Diana Lee",
+    "priority": "Low",
+    "status": "Resolved",
+    "createdAt": "2026-03-01T14:20:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Feature request: Dark mode",
+    "description": "Customer is requesting the addition of a dark mode in the web application for better accessibility during nighttime usage.",
+    "customer": "Ethan Wright",
+    "priority": "Low",
+    "status": "Open",
+    "createdAt": "2026-03-04T10:10:00Z"
+  },
+  {
+    "id": 6,
+    "title": "Error uploading documents",
+    "description": "Customer experiences an error when trying to upload PDF files to the portal. The system throws a generic 'Upload Failed' message.",
+    "customer": "Fiona Clark",
+    "priority": "Medium",
+    "status": "In Progress",
+    "createdAt": "2026-03-03T13:50:00Z"
+  },
+  {
+    "id": 7,
+    "title": "Account suspension without notice",
+    "description": "Customer account was suspended without prior warning. They are requesting clarification and immediate reactivation.",
+    "customer": "George Miller",
+    "priority": "High",
+    "status": "Open",
+    "createdAt": "2026-03-02T16:40:00Z"
+  },
+  {
+    "id": 8,
+    "title": "Unable to change profile picture",
+    "description": "Customer cannot update their profile picture in the account settings. The system fails to save changes after submission.",
+    "customer": "Hannah Wilson",
+    "priority": "Low",
+    "status": "Resolved",
+    "createdAt": "2026-03-01T18:25:00Z"
+  },
+  {
+    "id": 9,
+    "title": "Two-factor authentication not working",
+    "description": "Customer reports that they cannot receive the 2FA code on their phone. They are unable to complete login due to this issue.",
+    "customer": "Ian Thompson",
+    "priority": "High",
+    "status": "In Progress",
+    "createdAt": "2026-03-03T12:10:00Z"
+  },
+  {
+    "id": 10,
+    "title": "Delay in order delivery",
+    "description": "Customer reports that their order is delayed by three days past the estimated delivery date. They want status update and compensation.",
+    "customer": "Jessica Moore",
+    "priority": "Medium",
+    "status": "Open",
+    "createdAt": "2026-03-04T09:50:00Z"
+  },
+  {
+    "id": 11,
+    "title": "Incorrect product shipped",
+    "description": "Customer received the wrong product and requests replacement with the correct item immediately.",
+    "customer": "Kevin Brown",
+    "priority": "High",
+    "status": "Open",
+    "createdAt": "2026-03-02T15:30:00Z"
+  },
+  {
+    "id": 12,
+    "title": "Unable to apply discount code",
+    "description": "Customer reports that the discount code is not applied during checkout. They need assistance with the promotion.",
+    "customer": "Laura Adams",
+    "priority": "Medium",
+    "status": "In Progress",
+    "createdAt": "2026-03-03T17:45:00Z"
+  },
+  {
+    "id": 13,
+    "title": "Request to update contact information",
+    "description": "Customer wants to update their registered phone number and email address. Current process is failing with error.",
+    "customer": "Michael Scott",
+    "priority": "Low",
+    "status": "Resolved",
+    "createdAt": "2026-03-01T19:00:00Z"
+  },
+  {
+    "id": 14,
+    "title": "Website shows 500 server error",
+    "description": "Customer reports that the company website shows a 500 error when trying to access the dashboard. Needs immediate attention.",
+    "customer": "Nina Patel",
+    "priority": "High",
+    "status": "In Progress",
+    "createdAt": "2026-03-04T11:20:00Z"
+  },
+  {
+    "id": 15,
+    "title": "Feedback on new chat feature",
+    "description": "Customer provided feedback about the recently added chat feature, suggesting improvements in responsiveness and UI design.",
+    "customer": "Oliver King",
+    "priority": "Low",
+    "status": "Resolved",
+    "createdAt": "2026-03-02T10:05:00Z"
+  }
+]
