@@ -1,21 +1,17 @@
 /* eslint-disable react-hooks/set-state-in-render */
-import React, { use, useEffect, useState,  } from "react";
+import React, { use } from "react";
 import CustomerTicketCard from "../CustomerTicketCard/CustomerTicketCard";
 
 const CustomerTickets = ({
   allTicketsPromise,
   handleAddTicketToStatus,
-  currentResolveTask,
+  currentResolveTaskIds,
 }) => {
-    
   const allTicketsData = use(allTicketsPromise);
-  const [tickets,setTickets]=useState(allTicketsData)
 
-const afterCompleteTaskRemainingTasks=tickets.filter((ticket)=>ticket.id!==currentResolveTask.id)
-console.log(afterCompleteTaskRemainingTasks,'afterCompleteTaskRemainingTasksafterCompleteTaskRemainingTasks')
-useEffect(()=>{
-    setTickets(afterCompleteTaskRemainingTasks)
-},[afterCompleteTaskRemainingTasks])
+  const remainingTaskAfterComplete = allTicketsData.filter(
+    (task) => !currentResolveTaskIds.includes(task.id),
+  );
 
   return (
     <div>
@@ -24,7 +20,7 @@ useEffect(()=>{
       </h2>
 
       <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 items-center gap-4 lg:gap-6">
-        {tickets.map((ticket) => (
+        {remainingTaskAfterComplete.map((ticket) => (
           <CustomerTicketCard
             key={ticket.id}
             ticket={ticket}

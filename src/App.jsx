@@ -12,7 +12,9 @@ const allTicketsPromise = fetch("/ticket-data.json").then((res) => res.json());
 function App() {
   const [taskAddedToStatus, setTaskAddedToStatus] = useState([]);
   const [resolvedTask, setResolvedTask] = useState([]);
-  const [currentResolveTask,setCurrentResolveTask]=useState({})
+
+  // resolve task id for removing item which are done
+  const [currentResolveTaskIds,setCurrentResolveTaskIds]=useState([])
   //this will add task to the right section clicking task div
   const handleAddTicketToStatus = (ticket) => {
     const isAlreadyAdded = taskAddedToStatus.some(
@@ -21,7 +23,7 @@ function App() {
 
     if (isAlreadyAdded) {
       return toast.warn("Task Already Added", {
-        position: "top-right",
+        position: "top-left",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: false,
@@ -54,7 +56,21 @@ function App() {
 
   //handle resolved task
   const handleResolveTask = (resolveTask) => {
-    setCurrentResolveTask(resolveTask)
+
+const resolveTaskId=[...currentResolveTaskIds,resolveTask.id]
+    setCurrentResolveTaskIds(resolveTaskId)
+
+
+
+
+
+
+
+
+
+
+
+    // other part
     const allResolvedTask = [...resolvedTask, resolveTask];
     setResolvedTask(allResolvedTask);
     if (allResolvedTask.length >= 0) {
@@ -107,7 +123,7 @@ function App() {
               <CustomerTickets
                 handleAddTicketToStatus={handleAddTicketToStatus}
                 allTicketsPromise={allTicketsPromise}
-                currentResolveTask={currentResolveTask}
+                currentResolveTaskIds={currentResolveTaskIds}
               />
             </Suspense>
           </div>
