@@ -1,25 +1,20 @@
-
-import './App.css'
-import Footer from './Components/Footer/Footer'
-import NavBar from './Components/NavBar/NavBar'
+import "./App.css";
+import Footer from "./Components/Footer/Footer";
+import NavBar from "./Components/NavBar/NavBar";
 
 function App() {
- 
-
   return (
     <>
-    <header className='bg-white border-b border-b-gray-200 shadow-sm'>
-      <NavBar/>
-    </header>
-    <main>
+      <header className="bg-white border-b border-b-gray-200 shadow-sm">
+        <NavBar />
+      </header>
+      <main></main>
 
-    </main>
-
-    <footer>
-      <Footer/>
-    </footer>
+      <footer>
+        <Footer />
+      </footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
