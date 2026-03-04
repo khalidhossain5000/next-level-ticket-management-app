@@ -12,13 +12,13 @@ function App() {
       </header>
       <main className=" bg-[#f5f5f5]">
         {/* prgress and resolved section */}
-        <section className="max-w-11/12 lg:max-w-10/12 mx-auto  px-1 lg:px-6 flex items-center gap-6 py-20">
+        <section className="max-w-11/12 lg:max-w-10/12 mx-auto  px-1 lg:px-6 flex flex-col lg:flex-row items-center gap-6 py-20">
         {/* progress card */}
-        <div className="flex-1">
+        <div className="lg:flex-1 w-full">
           <Progress/>
         </div>
         {/* resolved card */}
-        <div className="flex-1">
+        <div className="lg:flex-1 w-full">
           <Resolved/>
         </div>
         </section>
