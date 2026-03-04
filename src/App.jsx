@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import NavBar from "./Components/NavBar/NavBar";
@@ -7,8 +7,33 @@ import Resolved from "./Components/ResolvedCard/Resolved";
 import CustomerTickets from "./Components/CustomerSupport/CustomerTickets/CustomerTickets";
 import TaskStatus from "./Components/CustomerSupport/TaskStatusSection/TaskStatus";
 import TaskResolved from "./Components/CustomerSupport/TaskResolved/TaskResolved";
-const allTicketsPromise=fetch('/ticket-data.json').then((res)=>res.json())
+import { Bounce, toast } from "react-toastify";
+const allTicketsPromise = fetch("/ticket-data.json").then((res) => res.json());
 function App() {
+  const [taskAddedToStatus,setTaskAddedToStatus]=useState([])
+
+
+  //this will add task to the right section clicking task div
+  const handleAddTicketToStatus=(ticket)=>{
+
+    const allAddedTaskToStatus=[...taskAddedToStatus,ticket]
+
+    setTaskAddedToStatus(allAddedTaskToStatus)
+
+    if(taskAddedToStatus.length>=0){
+      toast.success('Ticket Added To Task Status SuccessFully!', {
+position: "top-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "dark",
+transition: Bounce,
+});
+    }
+  }
   return (
     <>
       <header className="bg-white border-b border-b-gray-200 shadow-sm">
@@ -19,7 +44,7 @@ function App() {
         <section className="max-w-11/12 lg:max-w-10/12 mx-auto  px-1 lg:px-6 flex flex-col lg:flex-row items-center gap-6 py-20">
           {/* progress card */}
           <div className="lg:flex-1 w-full">
-            <Progress />
+            <Progress taskAddedToStatus={taskAddedToStatus} />
           </div>
           {/* resolved card */}
           <div className="lg:flex-1 w-full">
@@ -27,22 +52,25 @@ function App() {
           </div>
         </section>
 
-
-
-
         {/* customer support ticket layout */}
         <section className="max-w-11/12 lg:max-w-10/12 mx-auto  px-1 lg:px-6 grid lg:grid-cols-4 gap-6">
           {/* all ticket showing customer problem section div */}
           <div className="order-2 lg:order-1 lg:col-span-3">
-            <Suspense fallback={<span className="loading loading-bars loading-xl"></span>}>
-              <CustomerTickets allTicketsPromise={allTicketsPromise}/>
+            <Suspense
+              fallback={
+                <span className="loading loading-bars loading-xl"></span>
+              }
+            >
+              <CustomerTickets 
+            handleAddTicketToStatus={handleAddTicketToStatus}
+              allTicketsPromise={allTicketsPromise} />
             </Suspense>
           </div>
 
           {/* right sidebar shwoing status section div */}
           <div className="order-1 lg:order-2 lg:col-span-1">
-            <TaskStatus/>
-            <TaskResolved/>
+            <TaskStatus taskAddedToStatus={taskAddedToStatus}/>
+            <TaskResolved />
           </div>
         </section>
       </main>

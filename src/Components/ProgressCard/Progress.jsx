@@ -1,7 +1,7 @@
 import React from "react";
 import bgImg from "../../assets/bgimage/vector1.png";
 import bgImgi from "../../assets/bgimage/v2.png";
-const Progress = () => {
+const Progress = ({taskAddedToStatus}) => {
   return (
     <div
       style={{
@@ -15,7 +15,7 @@ const Progress = () => {
         In-Progress
       </h5>
       <h1 className="mt-4 text-3xl md:text-4xl lg:text-[60px] text-white font-semibold">
-        0
+        {taskAddedToStatus.length}
       </h1>
     </div>
   );

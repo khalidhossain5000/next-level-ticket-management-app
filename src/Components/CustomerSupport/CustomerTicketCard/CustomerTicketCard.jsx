@@ -1,12 +1,14 @@
 import React from "react";
 import { FaRegCalendar } from "react-icons/fa6";
 
-const CustomerTicketCard = ({ ticket }) => {
-  console.log(ticket);
+const CustomerTicketCard = ({ ticket ,handleAddTicketToStatus}) => {
+
   const { id,title, description, customer, priority, status, createdAt } = ticket;
 
   return (
-    <div className="bg-white p-4 rounded-sm shadow-lg cursor-pointer hover:scale-105 transition duration-500 ">
+    <div 
+    onClick={()=>handleAddTicketToStatus(ticket)}
+    className="bg-white p-4 rounded-sm shadow-lg cursor-pointer hover:scale-105 transition duration-500 ">
       <div className="flex flex-col xl:flex-row items-center gap-1 lg:gap-6 text-center xl:text-left justify-between">
         <h2 className="text-[18px] text-[#001931] font-medium mb-1 xl:mb-0">{title}</h2>
         <h4 className={`px-3 py-1 rounded-full bg-[#B9F8CF] ${status !=="Open" && 'bg-[#F8F3B9] text-[#9c7700] text-nowrap'} flex items-center gap-3 text-[16px] text-[#0b5e06]  font-medium`}>

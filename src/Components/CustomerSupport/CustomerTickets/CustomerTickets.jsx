@@ -1,7 +1,7 @@
 import React, { use } from 'react';
 import CustomerTicketCard from '../CustomerTicketCard/CustomerTicketCard';
 
-const CustomerTickets = ({allTicketsPromise}) => {
+const CustomerTickets = ({allTicketsPromise,handleAddTicketToStatus}) => {
     const allTicketsData=use(allTicketsPromise)
     
     return (
@@ -15,6 +15,7 @@ const CustomerTickets = ({allTicketsPromise}) => {
                 allTicketsData.map((ticket)=><CustomerTicketCard
                 key={ticket.id}
                 ticket={ticket}
+                handleAddTicketToStatus={handleAddTicketToStatus}
                 ></CustomerTicketCard>)
             }
             </div>
