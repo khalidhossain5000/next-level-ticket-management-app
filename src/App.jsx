@@ -4,7 +4,7 @@ import Footer from "./Components/Footer/Footer";
 import NavBar from "./Components/NavBar/NavBar";
 import Progress from "./Components/ProgressCard/Progress";
 import Resolved from "./Components/ResolvedCard/Resolved";
-import CustomerTickets from "./Components/CustomerTickets/CustomerTickets";
+import CustomerTickets from "./Components/CustomerSupport/CustomerTickets/CustomerTickets";
 const allTicketsPromise=fetch('/ticket-data.json').then((res)=>res.json())
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
 
 
         {/* customer support ticket layout */}
-        <section>
+        <section className="max-w-11/12 lg:max-w-10/12 mx-auto  px-1 lg:px-6">
           {/* all ticket showing customer problem section div */}
           <div>
             <Suspense fallback={<span className="loading loading-bars loading-xl"></span>}>
