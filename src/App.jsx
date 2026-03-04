@@ -5,6 +5,8 @@ import NavBar from "./Components/NavBar/NavBar";
 import Progress from "./Components/ProgressCard/Progress";
 import Resolved from "./Components/ResolvedCard/Resolved";
 import CustomerTickets from "./Components/CustomerSupport/CustomerTickets/CustomerTickets";
+import TaskStatus from "./Components/CustomerSupport/TaskStatusSection/TaskStatus";
+import TaskResolved from "./Components/CustomerSupport/TaskResolved/TaskResolved";
 const allTicketsPromise=fetch('/ticket-data.json').then((res)=>res.json())
 function App() {
   return (
@@ -29,16 +31,19 @@ function App() {
 
 
         {/* customer support ticket layout */}
-        <section className="max-w-11/12 lg:max-w-10/12 mx-auto  px-1 lg:px-6">
+        <section className="max-w-11/12 lg:max-w-10/12 mx-auto  px-1 lg:px-6 grid lg:grid-cols-4 gap-6">
           {/* all ticket showing customer problem section div */}
-          <div>
+          <div className="order-2 lg:order-1 lg:col-span-3">
             <Suspense fallback={<span className="loading loading-bars loading-xl"></span>}>
               <CustomerTickets allTicketsPromise={allTicketsPromise}/>
             </Suspense>
           </div>
 
           {/* right sidebar shwoing status section div */}
-          <div></div>
+          <div className="order-1 lg:order-2 lg:col-span-1">
+            <TaskStatus/>
+            <TaskResolved/>
+          </div>
         </section>
       </main>
 
