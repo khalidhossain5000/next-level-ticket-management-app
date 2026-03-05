@@ -22,6 +22,4 @@
 
 #### Ans: In React, event handling is done using event handlers like onClick, onChange, onSubmit, etc. These handlers are written in camelCase and we pass a function inside curly braces {} to handle the event.For example, in a button we can write onClick={handleClick}. When the button is clicked, the handleClick function will be executed.If we need to pass a value to the function, we cannot write onClick={handleClick(5)} directly. Because if we do that, the function will execute immediately during rendering, not when the button is clicked.
 
-#### So, to pass a value properly, we need to wrap the function inside another function like this:
-
-#### onClick={() => handleClick(5)}Here, we are passing an arrow function. This arrow function will only run when the button is clicked, and inside it we are calling handleClick with the value 5.So basically, we wrap the function to prevent it from executing immediately and to make sure it runs only when the event actually happens.
+#### So, to pass a value properly, we need to wrap the function inside another function like this:onClick={() => handleClick(5)}Here, we are passing an arrow function. This arrow function will only run when the button is clicked, and inside it we are calling handleClick with the value 5.So basically, we wrap the function to prevent it from executing immediately and to make sure it runs only when the event actually happens.
